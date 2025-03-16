@@ -1,6 +1,6 @@
 import React from "react";
 
-import { EditorState, Plugin } from "prosemirror-state";
+import { EditorState } from "prosemirror-state";
 import {
   ProseMirror,
   ProseMirrorDoc,

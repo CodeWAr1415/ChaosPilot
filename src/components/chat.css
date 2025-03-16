@@ -86,3 +86,19 @@
 .chat .chat-box .feedback-checkbox:checked + label .dynamic-icon {
   font-family: "Material Icons";
 }
+
+.api-key-toast {
+  @apply flex items-center gap-3;
+}
+
+.api-key-toast button {
+  @apply flex items-center cursor-pointer text-xl hover:text-emerald-500;
+}
+
+.api-key-toast button:last-child {
+  @apply hover:text-red-500;
+}
+
+.api-key-toast input {
+  @apply w-full mt-1 px-2 py-1 border-2 border-zinc-700 rounded-md;
+}

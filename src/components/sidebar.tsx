@@ -38,6 +38,11 @@ export default function Sidebar() {
     window.dispatchEvent(new CustomEvent("cp:show-header-buttons"));
   }
 
+  function resetChat() {
+    window.dispatchEvent(new CustomEvent("cp:reset-chat"));
+    selectTab(0);
+  }
+
   function selectTab(index: number) {
     document.title = `${tabs[index].title} | ChaosPilot`
     setCurrent(index);
@@ -65,45 +70,48 @@ export default function Sidebar() {
   }, []);
 
   return <aside data-shown={show}>
-    <div className="sidebar-header">
-      <div className="wrapper">
-        <button className="sidebar-toggle reactive" onClick={hideSidebar}>
-          <span className="symbol m-symbol">
-            &#xf7e4;
-          </span>
-        </button>
-        <div className="title">
-          <h2></h2>
-        </div>
-        <button
-          className="clear-chat reactive"
-        >
-          <span className="symbol m-symbol">
-            &#xe5d5;
-          </span>
-        </button>
-      </div>
-    </div>
-    <div className="tab-switcher">
-      <ul>
-        {tabs.map((t, i) => <li key={i} onClick={() => selectTab(i)}>
-          <div className="wrapper" data-selected={i === current}>
-            <div className="icon">
-              <span className="m-symbol">{t.icon}</span>
-            </div>
-            <div className="title">
-              {t.title}
-            </div>
+    <div className="wrapper">
+      <div className="sidebar-header">
+        <div className="wrapper">
+          <button className="sidebar-toggle reactive" onClick={hideSidebar}>
+            <span className="symbol m-symbol">
+              &#xf7e4;
+            </span>
+          </button>
+          <div className="title">
+            <h2></h2>
           </div>
-        </li>)}
-      </ul>
-    </div>
-    <div className="sidebar-footer">
-      &copy;
-      <span>&nbsp;</span>
-      <span>Code<b>WA</b>r 1415</span>
-      <span>&nbsp;-&nbsp;</span>
-      <span>HackDay 2025</span>
+          <button
+            className="clear-chat reactive"
+            onClick={resetChat}
+          >
+            <span className="symbol m-symbol">
+              &#xe5d5;
+            </span>
+          </button>
+        </div>
+      </div>
+      <div className="tab-switcher">
+        <ul>
+          {tabs.map((t, i) => <li key={i} onClick={() => selectTab(i)}>
+            <div className="wrapper" data-selected={i === current}>
+              <div className="icon">
+                <span className="m-symbol">{t.icon}</span>
+              </div>
+              <div className="title">
+                {t.title}
+              </div>
+            </div>
+          </li>)}
+        </ul>
+      </div>
+      <div className="sidebar-footer">
+        &copy;
+        <span>&nbsp;</span>
+        <span>Code<b>WA</b>r 1415</span>
+        <span>&nbsp;-&nbsp;</span>
+        <span>HackDay 2025</span>
+      </div>
     </div>
   </aside>
 }

@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./alarm.css";
+import toast from "react-hot-toast";
 
 interface AlarmData {
   id: number,
@@ -93,7 +94,9 @@ function Alarm() {
       const currentTime = now.toTimeString().slice(0, 5);
       alarms.forEach((alarm) => {
         if (alarm.enabled && alarm.time === currentTime) {
-          alert(`鬧鐘：${alarm.time}`);
+          toast(`鬧鐘：${alarm.time}`, {
+            icon: "⏰"
+          });
 
           updateAlarm(alarm.id, { ...alarm, enabled: false });
         }

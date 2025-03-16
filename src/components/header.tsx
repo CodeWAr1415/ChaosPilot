@@ -1,6 +1,9 @@
 import React from "react";
-import "./header.css";
 import toast from "react-hot-toast";
+
+import "./header.css";
+
+import avatarUrl from "../images/avatar.png";
 
 export default function Header() {
   const [showButtons, setShowButtons] = React.useState(true);
@@ -8,6 +11,15 @@ export default function Header() {
   function showSidebar() {
     window.dispatchEvent(new CustomEvent("cp:show-sidebar"));
     setShowButtons(false);
+  }
+
+  function resetChat() {
+    window.dispatchEvent(new CustomEvent("cp:reset-chat"));
+    window.dispatchEvent(new CustomEvent("cp:switch-tab", {
+      detail: {
+        index: 0
+      }
+    }));
   }
 
   React.useEffect(() => {
@@ -34,6 +46,7 @@ export default function Header() {
         </button>
         <button 
           className="clear-chat reactive"
+          onClick={resetChat}
         >
           <span className="symbol m-symbol">
             &#xe5d5;
@@ -45,7 +58,7 @@ export default function Header() {
         <h1>ChaosPilot</h1>
       </div>
       <div className="avatar reactive" onClick={() => toast.error("那傢伙竟然敢無視燈！")}>
-        <img src="/assets/avatar.png" />
+        <img src={avatarUrl} />
       </div>
     </div>
   </header>;

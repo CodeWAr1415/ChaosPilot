@@ -62,16 +62,14 @@ function renderChatHistory(hist: ChatData) {
 
   function navigate(t: CommandData) {
     if (t.name === "郵件") {
-      window.open(`mailto:${t.args[0]}?subject=${
-        window.encodeURI(t.args[1])
-      }&body=${
-        window.encodeURI(t.args[2])
-      }`);
+      window.open(`mailto:${t.args[0]}?subject=${window.encodeURI(t.args[1])
+        }&body=${window.encodeURI(t.args[2])
+        }`);
       return;
     }
 
     let index = nameToTabIndex[t.name];
-    
+
     window.dispatchEvent(new CustomEvent("cp:switch-tab", {
       detail: {
         index
@@ -175,7 +173,7 @@ export default function Chat() {
   const historyRef = React.useRef<HTMLDivElement>(null);
   const welcomeRef = React.useRef<HTMLDivElement>(null);
 
-  function changeUi() {
+  function hideWelcome() {
     if (!wrapperRef.current || !welcomeRef.current) return;
 
     const wrapper = wrapperRef.current;
@@ -187,15 +185,30 @@ export default function Chat() {
     });
   }
 
+  function showWelcome() {
+    if (!wrapperRef.current || !welcomeRef.current) return;
+
+    const wrapper = wrapperRef.current;
+    const welcome = welcomeRef.current;
+
+    window.requestAnimationFrame(() => {
+      wrapper.classList.add("float-center");
+      welcome.style.display = "";
+    });
+  }
+
   React.useEffect(() => {
     if (historyRef.current) {
       historyRef.current.scrollTop = historyRef.current.scrollHeight;
     }
 
     async function onChatSent(ev: CustomEventInit) {
+      let apiKey = window.localStorage.getItem("gemini_key");
+      if (!apiKey) return;
+
       let text: string = ev.detail.content;
 
-      changeUi();
+      hideWelcome();
       addChatHistory(ChatSide.USER, text.split(/\n/g).map(line => `${line}  `).join("\n"));
       setBlockInput(true);
 
@@ -305,6 +318,20 @@ export default function Chat() {
       window.removeEventListener("cp:send-chat", onChatSent);
     }
   }, [chatHistory]);
+
+  React.useEffect(() => {
+    function resetChat() {
+      if (blockInput) return;
+      setChatHistory([]);
+      setBlockInput(false);
+      showWelcome();
+    }
+
+    window.addEventListener("cp:reset-chat", resetChat);
+    return () => {
+      window.removeEventListener("cp:reset-chat", resetChat);
+    };
+  }, [blockInput]);
 
   return <div className="chat">
     <div className="wrapper float-center" ref={wrapperRef}>

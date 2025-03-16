@@ -1,7 +1,7 @@
 {
   "name": "cowpilot",
   "private": true,
-  "homepage": "http://codewar1415.github.io/ChaosPilot",
+  "homepage": "/ChaosPilot/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@handlewithcare/react-prosemirror": "^2.3.3",
@@ -30,6 +30,7 @@
     "react-hot-toast": "^2.5.2",
     "react-leaflet": "^5.0.0",
     "react-markdown": "^10.1.0",
+    "serve": "^14.2.4",
     "tailwindcss": "^4.0.14"
   },
   "devDependencies": {

@@ -75,7 +75,7 @@
   text-decoration: line-through;
 }
 
-.buttons button {
+:is(.todo, .alarm) .buttons button {
   margin-left: 5px;
   padding: 4px 8px;
   font-size: 14px;
