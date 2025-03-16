@@ -106,11 +106,17 @@ export default function Sidebar() {
         </ul>
       </div>
       <div className="sidebar-footer">
-        &copy;
-        <span>&nbsp;</span>
-        <span>Code<b>WA</b>r 1415</span>
-        <span>&nbsp;-&nbsp;</span>
-        <span>HackDay 2025</span>
+        <a 
+          href="https://github.com/CodeWAr1415/ChaosPilot" 
+          target="_blank" 
+          rel="noreferer noopener"
+        >
+          &copy;
+          <span>&nbsp;</span>
+          <span>Code<b>WA</b>r 1415</span>
+          <span>&nbsp;-&nbsp;</span>
+          <span>HackDay 2025</span>
+        </a>
       </div>
     </div>
   </aside>
