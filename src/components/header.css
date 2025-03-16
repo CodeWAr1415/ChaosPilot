@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+header {
+  @apply w-full border-b border-zinc-800;
+}
+
+header > .wrapper {
+  @apply relative px-4 py-2 flex justify-between;
+}
+
+header .title {
+  @apply 
+    absolute 
+    left-1/2 top-1/2 -translate-1/2 
+    flex items-center gap-1
+    text-2xl;
+}
+
+header .title .icon {
+  @apply text-3xl;
+}
+
+header .buttons {
+  @apply flex gap-1;
+  transition: opacity 100ms ease;
+}
+
+header .buttons button {
+  @apply text-3xl w-10 h-10 flex items-center justify-center;
+}
+
+header .buttons[data-visible=false] {
+  @apply opacity-0;
+}
+
+.symbol {
+  @apply text-neutral-400;
+}
+
+.avatar {
+  @apply rounded-full overflow-hidden w-9 h-9;
+}
+
+.avatar > img {
+  @apply w-full h-full;
+}

@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+.todo {
+  height: 100%;
+  margin: 50px 0;
+  padding: 20px 0;
+  background-color: transparent;
+}
+
+.todo-top {
+  @apply px-3;
+}
+
+.header {
+  @apply text-neutral-100;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.todo-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.todo-input {
+  @apply bg-zinc-800;
+  padding: 8px;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 8px;
+  margin-right: 10px;
+  flex-grow: 1;
+}
+
+.add-button {
+  @apply flex justify-center items-center bg-emerald-600 hover:bg-emerald-500 text-neutral-100;
+  width: 50px;
+  height: 40px;
+  font-size: 32px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 100ms ease;
+}
+
+.todos-list {
+  @apply overflow-y-scroll pl-3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 60dvh;
+}
+
+.todo-item {
+  @apply bg-zinc-800/80;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.todo-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.todo-item span {
+  flex: 1;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.buttons button {
+  margin-left: 5px;
+  padding: 4px 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #ffc107;
+  color: white;
+}
+
+.save-button {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.delete-button {
+  font-size: 28px;
+  background-color: #dc3545;
+  color: white;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 4px;
+  font-size: 16px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: #e8eaed;
+  margin-right: 10px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 8px;
+  border-radius: 8px;
+}
+
+/* 自定義 checkbox 外觀 */
+.todo-item input[type="checkbox"] {
+  @apply border-2 border-neutral-400 ml-2 mr-3;
+  -webkit-todoearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+}
+
+/* 當 checkbox 被選取時，改成灰底並呈現白色勾 */
+.todo-item input[type="checkbox"]:checked {
+  @apply bg-neutral-500;
+}
+
+/*
+.todo-item input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+  */
+
+.todo-item span {
+  flex: 1;
+  cursor: pointer;
+}
+
+.completed {
+  @apply text-neutral-500;
+  text-decoration: line-through;
+}
+
+.edit-input {
+  @apply bg-zinc-800 border-2 border-neutral-600;
+  flex: 1;
+  padding: 4px;
+  font-size: 16px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+/* 垃圾桶刪除按鈕 */
+.delete-button {
+  @apply text-zinc-500;
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.delete-button:hover {
+  color: #dc3545;
+}

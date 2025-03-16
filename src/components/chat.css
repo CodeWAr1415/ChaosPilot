@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+.chat {
+  @apply 
+    flex flex-col justify-center 
+    w-full h-full relative;
+}
+
+.chat > .wrapper.float-center {
+  @apply mb-12;
+}
+
+.chat > .wrapper:not(.float-center) {
+  @apply h-full pb-4 flex flex-col;
+}
+
+.chat .welcome {
+  @apply text-center text-4xl mb-8;
+}
+
+.chat .chat-history {
+  @apply flex-grow overflow-y-scroll scroll-smooth pb-9;
+  padding-left: 12px;
+}
+
+.chat .chat-history .row {
+  @apply flex p-4;
+}
+
+.chat .chat-history .row[data-side=right] {
+  @apply justify-end;
+}
+
+.chat .chat-history .chat-box {
+  max-width: 80%;
+}
+
+.chat .chat-history .row .chat-content {
+  @apply bg-zinc-800 px-4 py-2 rounded-3xl mb-2;
+}
+
+.chat .chat-content-extra > ul {
+  @apply ml-4;
+}
+
+.chat .chat-box .chat-feedbacks {
+  @apply px-4 mt-4 text-neutral-400 flex gap-4 select-none;
+}
+
+.chat .chat-content ol {
+  @apply list-decimal ml-6 my-2;
+}
+
+.chat .chat-content ul {
+  @apply list-disc ml-6 my-2;
+}
+
+.chat .chat-content pre {
+  @apply my-2 p-2 bg-zinc-900/40 rounded-md;
+  overflow-x: scroll;
+}
+.chat .chat-content pre::-webkit-scrollbar {
+  height: 10px;
+  background-color: transparent;
+}
+
+.chat .chat-content pre::-webkit-scrollbar-thumb {
+  @apply bg-zinc-500/40;
+  background-clip: content-box;
+  border: 3px solid transparent;
+  border-radius: 200px;
+}
+
+.chat .chat-content code {
+  font-family: "JetBrains Mono", 'Courier New', Courier, monospace;
+}
+
+.chat .chat-box .feedback-checkbox {
+  @apply hidden;
+}
+
+.chat .chat-box .feedback-checkbox + label .dynamic-icon {
+  font-family: "Material Symbols Outlined";
+}
+
+.chat .chat-box .feedback-checkbox:checked + label .dynamic-icon {
+  font-family: "Material Icons";
+}

@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+*, ::before, ::after {
+  font-family: Inter, "Noto Sans TC", sans-serif;
+}
+
+::selection {
+  @apply bg-sky-300/40;
+}
+
+* {
+  @apply focus:outline-none;
+}
+
+html, body {
+  @apply w-dvw h-dvh p-0 m-0 bg-zinc-900 text-neutral-300 overflow-hidden;
+}
+
+#root {
+  @apply h-full flex;
+}
+
+main {
+  @apply h-full flex-grow flex flex-col;
+}
+
+.tabs {
+  @apply flex-grow overflow-hidden;
+}
+
+[data-tab] {
+  @apply size-full;
+}
+
+.m-icon {
+  font-family: "Material Icons";
+}
+
+.m-symbol {
+  font-family: "Material Symbols Outlined";
+}
+
+.m-icon, .m-symbol {
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+.reactive {
+  @apply will-change-transform rounded-xl cursor-pointer;
+  transition: 100ms ease;
+}
+
+.reactive:hover {
+  @apply bg-neutral-100/10;
+}
+
+.reactive:active {
+  transform: scale(95%);
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 12px;
+  background-color: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-zinc-500/40;
+  background-clip: content-box;
+  border: 3px solid transparent;
+  border-radius: 200px;
+}
+
+button {
+  user-select: none;
+}
+
+.link {
+  @apply text-blue-400 cursor-pointer;
+}
+
+.sync-width {
+  @apply mx-auto;
+  width: 90%;
+  max-width: 800px;
+}

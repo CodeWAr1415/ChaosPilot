@@ -1,0 +1,48 @@
+{
+  "name": "cowpilot",
+  "private": true,
+  "homepage": "http://codewar1415.github.io/ChaosPilot",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "@handlewithcare/react-prosemirror": "^2.3.3",
+    "@tailwindcss/vite": "^4.0.14",
+    "@types/leaflet": "^1.9.16",
+    "gh-pages": "^6.3.0",
+    "install": "^0.13.0",
+    "leaflet": "^1.9.4",
+    "npm": "^11.2.0",
+    "prosemirror-model": "^1.24.1",
+    "prosemirror-schema-basic": "^1.2.3",
+    "prosemirror-schema-list": "^1.5.1",
+    "prosemirror-state": "^1.4.3",
+    "prosemirror-view": "^1.37.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.5.2",
+    "react-leaflet": "^5.0.0",
+    "react-markdown": "^10.1.0",
+    "tailwindcss": "^4.0.14"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react-swc": "^3.8.0",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.2.0"
+  }
+}

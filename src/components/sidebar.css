@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+aside {
+  @apply w-0 overflow-hidden bg-black/20 flex flex-col;
+  transition: width 400ms ease;
+}
+
+aside[data-shown=true] {
+  width: 320px;
+}
+
+.sidebar-header {
+  @apply w-full mb-8;
+}
+
+.sidebar-header > .wrapper {
+  @apply relative px-4 py-2 flex justify-between items-center;
+}
+
+.sidebar-header button {
+  @apply text-3xl w-10 h-10 flex items-center justify-center;
+}
+
+.sidebar-header .title {
+  @apply text-2xl;
+}
+
+.tab-switcher {
+  @apply flex-grow;
+}
+
+.tab-switcher li {
+  @apply w-full px-2 py-1 text-xl;
+}
+
+.tab-switcher li > .wrapper {
+  @apply 
+    flex items-center gap-3 
+    px-4 py-2
+    cursor-pointer 
+    hover:bg-zinc-800/50 
+    rounded-2xl;
+}
+
+.tab-switcher li > .wrapper[data-selected=true] {
+  @apply bg-zinc-800;
+}
+
+.tab-switcher li .icon {
+  @apply text-2xl flex items-center;
+}
+
+.sidebar-footer {
+  @apply mx-auto pb-4 whitespace-nowrap text-neutral-400;
+}
+
+.sidebar-footer * {
+  font-family: "JetBrains Mono", 'Courier New', Courier, monospace;
+}

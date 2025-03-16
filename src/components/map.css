@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+.map {
+  @apply size-full flex;
+}
+
+.map > .wrapper {
+  @apply flex-grow m-4 rounded-3xl overflow-hidden relative;
+}
+
+.leaflet-container {
+  @apply size-full;
+  filter: grayscale(0.1) contrast(0.8) brightness(0.9);
+}
+
+.leaflet-control-attribution {
+  @apply hidden;
+}
+
+.leaflet-control-zoom {
+  @apply hidden; 
+}
+
+.map .loading-overlay {
+  @apply 
+    z-400
+    absolute top-0
+    size-full 
+    opacity-0 pointer-events-none
+    bg-black/60
+    flex justify-center items-center;
+  transition: 200ms ease;
+}
+
+.map .loading-overlay[data-visible=true] {
+  @apply opacity-100 pointer-events-auto;
+}
